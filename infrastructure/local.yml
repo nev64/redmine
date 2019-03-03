@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: redmine_development
+      MYSQL_USER: redmine
+      MYSQL_PASSWORD: redmine
+    ports:
+      - 127.0.0.1:50000:3306
+    volumes:
+      - db:/var/lib/mysql:rw
+
+volumes:
+  db:
